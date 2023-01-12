@@ -1,0 +1,72 @@
+
+
+
+Check Partner :- userCheck       (POST)
+    contact_no , email_id
+
+Partner Registration :- userRegistration     (POST)
+    name, contact_no , email_id ,  otp , fcm_token
+
+Update Profile :- userProfile        (POST)
+    name , address , area , postal_code , state , city , profile_image , profile_image_temp 
+
+View Profile :- userProfile      (GET)
+
+Send OTP For Login :- sendOTPForLoginUser      (POST)  
+    contact_no 
+
+Login :-  userLogin      (POST)
+        contact_no , otp , fcm_token
+
+Dashboard :- userDashboard       (GET)      
+
+Book Partner :-  bookPartner        (POST)
+name , contact_no , address , area , postal_code , state , city , booking_date , booking_time , 
+no_of_days , amount , final_amount , payment_mode (1 = online , 2 = cash) , booking_type (1 = home, 2 = hospital) , hospital_name , hospital_address
+
+Payment Confirm :- bookPartnerPaymentConfirm        (POST)
+transaction_id , transaction_status(1 = success, 2 = failed) , payment_id
+
+Book Partner History :-  bookPartner        (GET)
+
+Book Partner Hospital History :-  bookPartnerHospital        (GET)
+
+///// Form
+
+Form Filed :- getFormField      (GET)
+
+Save Form :- formSave           (POST)
+ name , relationship , gender , language(comma separate multiple) , medical_condition , additional_requirement , level_of_mobility ,
+ level_of_dependency , image , weight , height , age
+
+View Form :- formSave           (GET)
+
+Video Call Request :- requestVideoCall      (POST)
+
+Get Video Call Request :- requestVideoCall      (GET)
+
+/////  Book Rental Product
+
+Book Product :- bookRentalProduct           (POST)
+name , contact_no , address , area , state , city , booking_date , no_of_days , amount , final_amount , payment_mode (set 1 only online)
+item_data (JOSN)
+
+[
+  {
+    "category_id": "1",
+    "product_id": "1",
+    "no_of_items": "2",
+    "amount": "100",
+    "final_amount": "200"
+  },
+  {
+    "category_id": "2",
+    "product_id": "2",
+    "no_of_items": "2",
+    "amount": "100",
+    "final_amount": "200"
+  }
+]
+
+Payment Confirm :- rentalProductPaymentConfirm        (POST)
+transaction_id , transaction_status(1 = success, 2 = failed) , payment_id

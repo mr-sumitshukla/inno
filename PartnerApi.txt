@@ -1,0 +1,72 @@
+Base URL :- https://www.innomitra.com/admin/api/
+
+Image Base URL :- https://www.innomitra.com/admin/
+
+State API :- stateApi       (GET)
+
+City API :- cityApi/$state_id       (GET)
+
+Service API :- serviceApi           (GET)
+
+Sub Service :- subServiceApi/$service_id        (GET)
+
+Hospital Service API :- hospitalServiceApi           (GET)
+
+Hospital Sub Service :- hospitalSubServiceApi/$service_id        (GET)
+
+Category :- categoryApi           (GET)
+
+Product :- productApi/$category_id        (GET)
+
+0 = pending
+1 = send request
+2 = interview scheduled
+3 = interview request reject
+4 = selected
+5 = interview reject
+
+///// Partner
+
+Check Partner :- partnerCheck       (POST)
+    contact_no , email_id
+
+Partner Registration :- partnerRegistration     (POST)
+    name, contact_no , email_id , service_id , otp
+
+Update Profile :- partnerProfile        (POST)
+    name , service_id , address , area , postal_code , state , city , profile_image , profile_image_temp , 
+    document_type , document_no , document_image , document_image_temp , account_holder_name , account_number , ifsc_code , bank_name
+    police_verify_document
+    
+View Profile :- partnerProfile      (GET)
+
+Send OTP For Login :- sendOTPForLogin       (POST)  
+    contact_no 
+
+Login :-  partnerLogin      (POST)
+        contact_no , otp , fcm_token
+
+Dashboard :- partnerDashboard       (GET)        
+
+Get Booking :- getBookPartner/$status       (GET)
+    Note :- 1 = assign , 2 = accept , 3 = work compete
+
+Get Hospital Booking :- getHospitalBookPartner/$status       (GET)
+    Note :- 1 = assign , 2 = accept , 3 = work compete
+
+Get Work :- partnerWorkCheckIn?book_partner_id=1        (GET)
+
+Work Check Out :- partnerWorkCheckIn        (POST)
+    book_partner_id    
+
+Work Complete :- partnerWorkComplete        (POST)
+book_partner_id
+
+Transaction History :- gymTransaction       (GET)
+
+Save Interview:- interViewRequest           (POST)
+ name , relationship , gender , language(comma separate multiple) , medical_condition , additional_requirement , level_of_mobility ,
+ level_of_dependency , image , weight , height , age
+
+View Interview :- interViewRequest           (GET)
+    
